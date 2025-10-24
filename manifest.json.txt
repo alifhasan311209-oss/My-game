@@ -1,0 +1,16 @@
+{
+  "name": "BossRiseX puzzle",
+  "short_name": "BossRiseX puzzle",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "A fun HTML5 game made by Alif Hasan!",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
