@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BossRiseX 2048</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="title">
+        <h1>BossRiseX 2048</h1>
+        <small class="subtitle">Bring tiles together. Reach 2048.</small>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="label">Score</div>
+          <div id="score" class="value">0</div>
+        </div>
+        <div class="metric">
+          <div class="label">Best</div>
+          <div id="best" class="value">0</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="controls-row">
+      <div class="left-controls">
+        <button id="new-game" class="btn">New Game</button>
+        <button id="undo" class="btn" title="Undo last move">Undo</button>
+      </div>
+
+      <div class="right-controls">
+        <div class="stat">
+          <div class="stat-label">Time</div>
+          <div id="timer">00:00</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Moves</div>
+          <div id="moves">0</div>
+        </div>
+        <button id="mute" class="icon-btn" title="Mute / Unmute">🔊</button>
+      </div>
+    </section>
+
+    <main class="game-area">
+      <div id="board" class="board" aria-label="2048 game board"></div>
+
+      <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="overlay-card">
+          <h2 id="overlay-title">You win!</h2>
+          <p id="overlay-sub" class="subtext"></p>
+          <div class="overlay-actions">
+            <button id="continue-btn" class="btn">Continue</button>
+            <button id="play-again" class="btn primary">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>Made for BossRiseX • No external assets • English UI</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

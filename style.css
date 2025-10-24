@@ -1,0 +1,180 @@
+:root{
+  --bg: #f6f5f3;
+  --panel: #efe8e0;
+  --accent: #2f2b26;
+  --muted: #9a8f85;
+  --board-bg: #cdc1b4;
+  --gap: 12px;
+  --tile-radius: 10px;
+}
+
+/* Reset + layout */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(180deg,#fbfaf8 0%,var(--bg) 100%);
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.container{
+  width:100%;
+  max-width:520px;
+}
+
+/* Top header */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:14px;
+}
+.title h1{
+  margin:0;
+  font-size:28px;
+}
+.subtitle{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+  font-size:12px;
+}
+
+/* Score area */
+.metrics{display:flex;gap:8px}
+.metric{
+  background:var(--panel);
+  border-radius:8px;
+  padding:8px 10px;
+  text-align:center;
+  min-width:84px;
+}
+.metric .label{font-size:11px;color:var(--muted)}
+.metric .value{font-size:18px;font-weight:800; margin-top:4px}
+
+/* Controls row */
+.controls-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.left-controls{display:flex;gap:8px}
+.right-controls{display:flex;gap:12px;align-items:center}
+.btn{
+  background:#8f7a66;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+}
+.btn.primary{background:#2e7d32}
+.icon-btn{
+  background:transparent;
+  border:1px solid #ddd;
+  padding:8px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+.stat{ text-align:center }
+.stat-label{ font-size:11px; color:var(--muted) }
+#timer, #moves{ font-weight:700; margin-top:4px }
+
+/* Game area and board */
+.game-area{ position:relative }
+.board{
+  position:relative;
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--board-bg);
+  padding:18px;
+  border-radius:14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:var(--gap);
+}
+
+/* Slot backgrounds (static) */
+.slot{
+  background: rgba(255,255,255,0.1);
+  border-radius:var(--tile-radius);
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Tiles (absolute) */
+.tile{
+  position:absolute;
+  border-radius:var(--tile-radius);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#f9f6f2;
+  user-select:none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  transition: transform 120ms ease, top 120ms ease, left 120ms ease;
+  will-change: transform, top, left;
+}
+
+/* tile styles - base */
+.tile.small{ font-size:20px }
+.tile.medium{ font-size:18px }
+.tile.large{ font-size:16px }
+
+/* specific colors */
+.v2 { background:#eee4da; color:#776e65 }
+.v4 { background:#ede0c8; color:#776e65 }
+.v8 { background:#f2b179 }
+.v16{ background:#f59563 }
+.v32{ background:#f67c5f }
+.v64{ background:#f65e3b }
+.v128{ background:#edcf72; color:#f9f6f2 }
+.v256{ background:#edcc61; color:#f9f6f2 }
+.v512{ background:#edc850; color:#f9f6f2 }
+.v1024{ background:#edc53f; color:#f9f6f2 }
+.v2048{ background:#edc22e; color:#f9f6f2 }
+.vbig { background: #3c3a36; color: #f9f6f2 }
+
+/* Overlay (win/lose) */
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter: blur(2px);
+}
+.overlay.hidden{ display:none }
+.overlay-card{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align:center;
+  min-width:240px;
+}
+.overlay-card h2{margin:0 0 8px 0}
+.overlay-card .subtext{ color:var(--muted); margin-bottom:12px }
+.overlay-actions{ display:flex; gap:8px; justify-content:center }
+
+/* footer */
+.footer{ margin-top:14px; text-align:center; color:var(--muted); font-size:12px }
+
+/* Responsive tweaks */
+@media (max-width:420px){
+  .title h1{ font-size:22px }
+  .metric .value{ font-size:16px }
+}
